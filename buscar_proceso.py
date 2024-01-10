@@ -17,13 +17,13 @@ except IndexError:
 
 r = subprocess.run("C:/Users/celso/Desktop/processinfo-windows/processinfo.exe",capture_output=True, encoding="cp850")
 lineas = r.stdout.split("\n")
-#pprint.pprint(lineas[4:-2])
+
 
 lineas = lineas[4:-2]
 
 for linea in lineas:
     linea = linea.split("|")
-    #print(linea)
+    
     
     usuario = linea[3]
     
