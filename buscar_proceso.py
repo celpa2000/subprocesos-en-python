@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 26 16:09:34 2021
 
-@author: celso
-"""
 
 import subprocess
-import pprint
 import sys
 try:
-    proce = sys.argv[1]
+    proceso = sys.argv[1]
 except IndexError:
-    print("Indique el nombre de un proceso: ")
-
     sys.exit()
 
-r = subprocess.run("C:/Users/celso/Desktop/processinfo-windows/processinfo.exe",capture_output=True, encoding="cp850")
+"""CON EL MODULO SUBPROCESS Y EL PROGRAMA PROCESSINFO PASADO
+    COMO ARGUMENTO CAPTURAMOS LA SALIDA POR PANTALLA CON EL SIGUIENTE PARAMETRO 'capture_ouput'
+    LUEGO LE PASAMOS COMO TRECER PARAMETRO LA CODIFICACION 'cp850'
+"""
+r = subprocess.run("processinfo",capture_output=True, encoding="cp850")
+
+
 lineas = r.stdout.split("\n")
 
 
@@ -23,15 +22,10 @@ lineas = lineas[4:-2]
 
 for linea in lineas:
     linea = linea.split("|")
-    
-    
     usuario = linea[3]
-    
-       
-  
     pid = linea[1]
-    procesoo = linea[2]
-    procesoo = procesoo.strip()
-    if proce == procesoo:
-        
-        print("PID:",pid,"Usuario:",usuario[0:6])
+    proces = linea[2]
+    proces = proces.strip()
+
+    if proceso == proces:
+         print("PID:",pid,"Usuario:",usuario[-6:])
