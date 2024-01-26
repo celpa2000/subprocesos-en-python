@@ -11,6 +11,12 @@ except IndexError:
 """
 r = subprocess.run("processinfo",capture_output=True, encoding="cp850")
 
+""""
+    Lo que hace el programa processinfo es dar la lista de procesos es un script que muestra lo que seria
+    obtenoendo esto del modulo subprocess
+    subprocess.run("tasklist"). A partir de lo que devuelve se busca el proceso del usuario que quiera
+    buscar en el parametro sys.argv
+"""
 
 lineas = r.stdout.split("\n")
 
